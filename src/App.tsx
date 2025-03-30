@@ -6,10 +6,14 @@ import Services from './components/Services';
 import Features from './components/Features';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   return (
     <div className="min-h-screen bg-gray-900">
+      <SpeedInsights />
+      <Analytics />
       <Navbar />
       <Hero />
       <Pricing />
