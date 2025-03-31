@@ -11,6 +11,7 @@ import ContactUs from './components/ContactUs';
 import RefundAndCancellation from './components/RefundAndCancellation';
 import TermsAndConditions from './components/TermsAndConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import AboutUs from './components/AboutUs';
 import NotFound from './components/NotFound';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -35,6 +36,7 @@ function App() {
           <Route path="/refundandcancellation" element={<RefundAndCancellation />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
