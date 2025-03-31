@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import ContactUs from './components/ContactUs';
 import RefundAndCancellation from './components/RefundAndCancellation';
 import TermsAndConditions from './components/TermsAndConditions';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import NotFound from './components/NotFound';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -33,6 +34,7 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/refundandcancellation" element={<RefundAndCancellation />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
