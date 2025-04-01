@@ -131,7 +131,11 @@ const Pricing: React.FC = () => {
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
                       <Check className="h-5 w-5 text-green-500" />
-                      <span className="ml-3 text-gray-300">{feature}</span>
+                      <span className="ml-3 text-gray-300">
+                        {typeof feature === 'string'
+                          ? feature
+                          : `${feature.name}: ${feature.value}`}
+                      </span>
                     </li>
                   ))}
                 </ul>

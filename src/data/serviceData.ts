@@ -12,15 +12,20 @@ export interface LocationPricing {
 
 export interface PlanFeature {
     name: string;
+    value: string;
+}
+
+export interface Plan {
+    name: string;
     price: number; // Base price in USD
     locationPricing: LocationPricing; // Different prices for different locations
-    features: string[];
+    features: Array<string | PlanFeature>; // Can be either string array or array of name-value objects
 }
 
 export interface ServiceData {
     title: string;
     description: string;
-    plans: PlanFeature[];
+    plans: Plan[];
 }
 
 export interface ServiceDataMap {

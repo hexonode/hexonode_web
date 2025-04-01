@@ -1,6 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Server, Gamepad2, Bot, Globe2, HardDrive, Shield } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
@@ -15,37 +14,59 @@ import AboutUs from './components/AboutUs';
 import ClientArea from './components/ClientArea';
 import ProductPage from './components/ProductPage';
 import NotFound from './components/NotFound';
+import AuthPage from './components/AuthPage';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './context/AuthContext';
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
+// ScrollToTop component to handle scrolling to top on route changes
+const ScrollToTop: React.FC = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-900">
-        <SpeedInsights />
-        <Analytics />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Hero />
-              <Pricing />
-              <Services />
-              <Features />
-            </>
-          } />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/refundandcancellation" element={<RefundAndCancellation />} />
-          <Route path="/termsandconditions" element={<TermsAndConditions />} />
-          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/clientarea" element={<ClientArea />} />
-          <Route path="/product/:serviceType" element={<ProductPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="min-h-screen bg-gray-900">
+          <SpeedInsights />
+          <Analytics />
+          <ScrollToTop />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <Hero />
+                <Pricing />
+                <Services />
+                <Features />
+              </>
+            } />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/refundandcancellation" element={<RefundAndCancellation />} />
+            <Route path="/termsandconditions" element={<TermsAndConditions />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/clientarea" element={
+              <ProtectedRoute>
+                <ClientArea />
+              </ProtectedRoute>
+            } />
+            <Route path="/product/:serviceType" element={<ProductPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
