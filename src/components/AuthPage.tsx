@@ -181,6 +181,16 @@ const AuthPage: React.FC = () => {
 
                     {/* Alternative action */}
                     <div className="mt-6 text-center">
+                        <button
+                            type="button"
+                            className="w-full flex justify-center py-2 px-4 border border-gray-600 rounded-md shadow-sm text-sm font-medium text-white bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 mb-4"
+                            onClick={() => {
+                                setEmail("test@example.com");
+                                setPassword("password123");
+                            }}
+                        >
+                            Use Test Account
+                        </button>
                         <p className="text-sm text-gray-400">
                             {isLogin ? "Don't have an account? " : "Already have an account? "}
                             <button

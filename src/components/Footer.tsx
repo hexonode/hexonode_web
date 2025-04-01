@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <Server className="h-8 w-8 text-purple-400" />
-              <span className="ml-2 text-2xl font-bold text-white">HexoNodes</span>
+              <span className="ml-2 text-2xl font-bold text-white">HexoNode</span>
             </div>
             <p className="text-gray-400">
               Your trusted partner for high-performance hosting solutions.

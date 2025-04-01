@@ -14,7 +14,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <Server className="h-8 w-8 text-purple-400" />
-              <span className="ml-2 text-2xl font-bold text-white">HexoNodes</span>
+              <span className="ml-2 text-2xl font-bold text-white">HexoNode</span>
             </Link>
           </div>
 
