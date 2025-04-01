@@ -22,9 +22,9 @@ const Navbar = () => {
             <a href="#features" className="text-gray-300 hover:text-purple-400 transition-colors">Features</a>
             <a href="#pricing" className="text-gray-300 hover:text-purple-400 transition-colors">Pricing</a>
             <Link to="/contactus" className="text-gray-300 hover:text-purple-400 transition-colors">Contact Us</Link>
-            <button className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-500 transition-all transform hover:scale-105">
+            <Link to="/clientarea" className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-500 transition-all transform hover:scale-105">
               Client Area
-            </button>
+            </Link>
           </div>
 
           <div className="md:hidden flex items-center">
@@ -42,9 +42,9 @@ const Navbar = () => {
               <a href="#features" className="block px-3 py-2 text-gray-300 hover:text-purple-400">Features</a>
               <a href="#pricing" className="block px-3 py-2 text-gray-300 hover:text-purple-400">Pricing</a>
               <Link to="/contactus" className="block px-3 py-2 text-gray-300 hover:text-purple-400">Contact Us</Link>
-              <button className="w-full mt-2 bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-500">
+              <Link to="/clientarea" className="block w-full mt-2 bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-500 text-center">
                 Client Area
-              </button>
+              </Link>
             </div>
           </div>
         )}

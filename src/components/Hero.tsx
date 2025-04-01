@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Server, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import type { Engine } from "tsparticles-engine";
@@ -152,6 +153,13 @@ const Hero = () => {
     };
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="pt-20 bg-gradient-to-b from-gray-900 via-purple-900 to-gray-900 text-white relative overflow-hidden">
       {/* Star Particles Background */}
@@ -182,10 +190,16 @@ const Hero = () => {
               by advanced DDoS protection.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <button className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-500 transition-all transform hover:scale-105">
+              <button
+                onClick={() => scrollToSection('services')}
+                className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-500 transition-all transform hover:scale-105"
+              >
                 Get Started
               </button>
-              <button className="border-2 border-purple-400 text-purple-400 px-8 py-3 rounded-lg font-semibold hover:bg-purple-400 hover:text-white transition-all transform hover:scale-105">
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="border-2 border-purple-400 text-purple-400 px-8 py-3 rounded-lg font-semibold hover:bg-purple-400 hover:text-white transition-all transform hover:scale-105"
+              >
                 View Plans
               </button>
             </div>

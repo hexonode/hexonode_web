@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Check, MapPin } from 'lucide-react';
 import serviceData, { PricingNavProps, LocationCode } from '../data/serviceData';
+import { Link } from 'react-router-dom';
 
 const PricingNav: React.FC<PricingNavProps> = ({ activeService, setActiveService }) => {
   return (
@@ -134,9 +135,12 @@ const Pricing: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="mt-8 w-full bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-500 transition-all transform hover:scale-105">
+                <Link
+                  to={`/product/${activeService}`}
+                  className="mt-8 w-full bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-500 transition-all transform hover:scale-105 block text-center"
+                >
                   Get Started
-                </button>
+                </Link>
               </div>
             );
           })}
